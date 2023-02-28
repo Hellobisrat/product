@@ -5,17 +5,17 @@ const Product = ({productList,handleDetail}) => {
         
         <>
         {
-          productList.map((items)=>{
+          productList.map((item)=>{
             return (
               <  >
-              <form  onClick={handleDetail}>
-              <h4  className='productlist'> {items.name} 
+              
+              <h4  className='productlist'> {item.name} 
              
-              <button  type='submit' className='detail'  >
+              <button  type='submit' className='detail' onClick={() => handleDetail(item)} >
                  DETAIL</button>
                
                  </h4>
-              </form>
+             
               
               </>
             )

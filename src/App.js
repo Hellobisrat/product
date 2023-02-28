@@ -5,11 +5,11 @@ import './App.css';
 import Details from './component/Details';
 
 function App() {
-  const[product, setProduct]=useState('')
-  const[price,setPrice]=useState('')
-  const[productList,setProductList]=useState([])
-  const[productDetails,setProductDeatils]=useState([])
-  const handleName=(event)=>{
+  const [product, setProduct]=useState('')
+  const [price,setPrice]=useState('')
+  const [productList,setProductList]=useState([])
+  const [productDetails,setProductDetails]=useState(null)
+  const handleName = (event)=>{
     setProduct(event.target.value)
   }
   const handlePrice=(e)=>{
@@ -26,12 +26,13 @@ function App() {
     setProductList(oldproduct=>[...oldproduct,templist])
     setProduct('')
     
-      }
-      const handleDetail=(id)=>{ 
+  }
+      const handleDetail = (product)=>{ 
     
-       const newlist =productList.filter(pro=>pro.id===id)
-       setProductDeatils(newlist) 
-        setProduct('') }
+       
+       setProductDetails(product) 
+        
+      }
     
 
 
@@ -51,7 +52,7 @@ function App() {
       
       
        <Product productList={productList} handleDetail={handleDetail}/>
-       <Details productDetails={productDetails}/>
+       {productDetails ? (<Details productDetails={productDetails}/>) : null}
           
        
       
